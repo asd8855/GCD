@@ -6,6 +6,9 @@
 //  Copyright © 2017年 蝉鸣. All rights reserved.
 //
 
+//大神博客地址
+//http://www.cnblogs.com/Jepson1218/p/5180798.html?from=timeline&isappinstalled=0
+
 //在实际开发中如何使用GCD更好的实现我们的需求
 /*
     Synchronous(同步) Asynchronous(异步)
