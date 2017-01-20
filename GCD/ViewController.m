@@ -6,6 +6,40 @@
 //  Copyright © 2017年 蝉鸣. All rights reserved.
 //
 
+//在实际开发中如何使用GCD更好的实现我们的需求
+/*
+    Synchronous(同步) Asynchronous(异步)
+    Serial Queues(串行) Concurrent Queues(并发)
+    Global Queues(全局队列)
+    Main Queue(主队列)
+    同步的作用
+    dispatch_time延迟操作
+    线程安全(单例dispatch_once、读写dispatch_barrier_async)
+    dispatch_group(调度组)
+ */
+
+//我们为什么要用GCD技术
+/*
+ GCD 能通过推迟昂贵计算任务并在后台运行它们来改善你的应用的响应性能。
+ GCD 提供一个易于使用的并发模型而不仅仅只是锁和线程，以帮助我们避开并发陷阱。
+ GCD 具有在常见模式（例如单例）上用更高性能的原语优化你的代码的潜在能力。
+ GCD旨在替换NSThread等线程技术
+ GCD可充分利用设备的多核
+ GCD可自动管理线程的生命周期
+ */
+
+//开发中常用到的有
+/*
+    异步
+    串行队列异步任务 应用场景:耗时间，有顺序的任务 1.登录--->2.付费--->3.才能看
+    并发队列异步任务 应用场景:同时下载多个电影
+    全局队列异步任务 应用场景:蜻蜓FM同时下载多个声音
+    主队列异步任务  应用场景:当做了耗时操作之后,我们需要回到主线程更新UI的时候,就非它不可
+    同步队列异步任务 应用场景:<保证我们任务执行的先后顺序> 1.登录 2.同时下载三部电影
+ 
+    dispatch_group(调度组) 应用场景:比如同时开了是哪个线程下载视频,只有当三个视频完全下载完毕后,我才能做后续的事。这个就需要用到调度组,这个调度组,就能监听它里面的任务是否都执行完毕
+ */
+
 #import "ViewController.h"
 
 @interface ViewController ()
